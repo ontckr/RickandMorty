@@ -10,8 +10,8 @@ class CharacterView extends StatefulWidget {
 class _CharacterViewState extends State<CharacterView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Container(
+      child: Center(
         child: Text('characters page'),
       ),
     );
