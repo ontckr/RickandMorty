@@ -12,8 +12,7 @@ class AllCharacters {
 
   factory AllCharacters.fromJson(Map<String, dynamic> json) => AllCharacters(
         info: Info.fromJson(json["info"]),
-        results: List<Character>.from(
-            json["results"].map((x) => Character.fromJson(x))),
+        results: List<Character>.from(json["results"].map((x) => Character.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {

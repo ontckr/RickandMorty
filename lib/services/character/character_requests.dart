@@ -12,7 +12,6 @@ class CharacterService {
   Future<AllCharacters> getAllCharacters() async {
     try {
       var response = await _dio.get('${Constants.baseURL}${Constants.characterEndpoint}');
-
       return AllCharacters.fromJson(response.data);
     } on DioError {
       rethrow;
