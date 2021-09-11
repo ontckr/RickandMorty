@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:rick_and_morty/models/all_characters_model.dart';
 import 'package:rick_and_morty/models/character_model.dart';
@@ -8,11 +10,29 @@ class CharactersController extends GetxController {
 
   bool isLoading = true;
 
+  bool visibilityStatus = true;
+
   List<Character> characterList = [];
 
   @override
   void onInit() {
     getCharacters();
+
+    ScrollController _hideButtonController = new ScrollController();
+    _hideButtonController.addListener(() {
+      if (_hideButtonController.position.userScrollDirection == ScrollDirection.reverse) {
+        if (visibilityStatus == true) {
+          visibilityStatus = false;
+        }
+      } else {
+        if (_hideButtonController.position.userScrollDirection == ScrollDirection.forward) {
+          if (visibilityStatus == false) {
+            visibilityStatus = true;
+          }
+        }
+      }
+    });
+
     super.onInit();
   }
 
